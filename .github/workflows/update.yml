@@ -46,3 +46,4 @@ jobs:
             git push origin main
           else
             echo "No changes detected."
+            fi
