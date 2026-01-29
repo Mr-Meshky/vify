@@ -23,19 +23,14 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Enable Corepack (pnpm)
-        run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
-
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm ci
 
       - name: Build TypeScript
-        run: pnpm run build
+        run: npm run build
 
       - name: Run VPN aggregator script
-        run: pnpm start
+        run: npm start
 
       - name: Configure Git
         run: |
@@ -51,4 +46,3 @@ jobs:
             git push origin main
           else
             echo "No changes detected."
-          fi
