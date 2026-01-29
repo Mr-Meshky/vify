@@ -17,7 +17,6 @@ const SOURCES = [
   "https://www.v2nodes.com/subscriptions/country/all/?key=CCAD69583DBA2BF",
   "https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt",
   "https://raw.githubusercontent.com/parvinxs/Submahsanetxsparvin/refs/heads/main/Sub.mahsa.xsparvin",
-  "https://chat.tawana.online/sub/tawanaproxy.txt",
 ];
 
 const BLOCKED_PROTOCOLS = new Set([
