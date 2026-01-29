@@ -1,0 +1,54 @@
+name: Update & Publish VPN Configs
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *" # every 1 hour
+
+jobs:
+  update-configs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Enable Corepack (pnpm)
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build TypeScript
+        run: pnpm run build
+
+      - name: Run VPN aggregator script
+        run: pnpm start
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "actions@github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}
+
+      - name: Commit & push changes (if any)
+        run: |
+          git add configs
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: auto update vpn configs [skip ci]"
+            git push origin main
+          else
+            echo "No changes detected."
+          fi
