@@ -16,14 +16,27 @@ const SOURCES = [
   "https://raw.githubusercontent.com/arshiacomplus/v2rayExtractor/refs/heads/main/mix/sub.html",
   "https://www.v2nodes.com/subscriptions/country/all/?key=CCAD69583DBA2BF",
   "https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt",
+  "https://raw.githubusercontent.com/parvinxs/Submahsanetxsparvin/refs/heads/main/Sub.mahsa.xsparvin",
+  "https://chat.tawana.online/sub/tawanaproxy.txt",
 ];
+
+const BLOCKED_PROTOCOLS = new Set([
+  "https",
+  "hysteria2",
+  "hy2",
+  "tuic",
+  "hysteria",
+]);
 
 axios.defaults.headers.common["User-Agent"] =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/138.0.0.0";
 axios.defaults.timeout = 15000;
 axios.defaults.validateStatus = () => true;
 
+/* ================= Cache ================= */
+
 const ipCache = new Map<string, string>();
+const geoCache = new Map<string, string>();
 const tagCache = new Map<string, string>();
 
 /* ================= Base64 ================= */
@@ -44,19 +57,18 @@ async function parallelMap<T, R>(
   limit: number,
   fn: (item: T) => Promise<R>,
 ): Promise<R[]> {
-  const result: R[] = [];
+  const res: R[] = [];
   let i = 0;
 
   async function worker() {
     while (i < items.length) {
       const idx = i++;
-      result[idx] = await fn(items[idx]);
+      res[idx] = await fn(items[idx]);
     }
   }
 
   await Promise.all(Array.from({ length: limit }, worker));
-
-  return result;
+  return res;
 }
 
 function detectProtocol(link: string): string {
@@ -87,8 +99,8 @@ async function resolveIP(host: string): Promise<string> {
 
 async function fetchText(url: string): Promise<string> {
   try {
-    const res = await axios.get(url);
-    return res.data || "";
+    const r = await axios.get(url);
+    return r.data || "";
   } catch {
     return "";
   }
@@ -96,14 +108,12 @@ async function fetchText(url: string): Promise<string> {
 
 /* ================= Tag ================= */
 
-const geoCache = new Map<string, string>();
-
 async function getCountryCode(ip: string): Promise<string> {
   if (geoCache.has(ip)) return geoCache.get(ip)!;
 
   try {
-    const res = await axios.get(`https://ipwho.is/${ip}`);
-    const cc = (res.data?.country_code || "UN").toUpperCase();
+    const r = await axios.get(`https://ipwho.is/${ip}`);
+    const cc = (r.data?.country_code || "UN").toUpperCase();
     geoCache.set(ip, cc);
     return cc;
   } catch {
@@ -120,33 +130,26 @@ async function buildTag(ip: string): Promise<string> {
   if (tagCache.has(ip)) return tagCache.get(ip)!;
 
   const cc = await getCountryCode(ip);
-  const flag = countryFlag(cc);
-  const rand = crypto.randomInt(100000, 999999);
-  const tag = `${flag} @MrMeshkyChannel ${rand}`;
+  const tag = `${countryFlag(cc)} @MrMeshkyChannel ${crypto.randomInt(100000, 999999)}`;
 
   tagCache.set(ip, tag);
   return tag;
 }
+
 /* ================= Rename ================= */
 
-function renameVmess(
-  link: string,
-  ip: string,
-  port: number,
-  tag: string,
-): string {
+function renameVmessSafe(link: string, tag: string): string {
   try {
-    const raw = link.replace("vmess://", "");
+    const raw = link.replace("vmess://", "").trim();
     const cfg = JSON.parse(b64Decode(raw));
-    cfg.add = ip;
-    cfg.port = port;
     cfg.ps = tag;
-    return `vmess://${b64Encode(JSON.stringify(cfg))}#${encodeURIComponent(tag)}`;
+    return `vmess://${b64Encode(JSON.stringify(cfg))}`;
   } catch {
     return link;
   }
 }
 
+// vless / trojan / ss
 function renameURLLike(
   link: string,
   ip: string,
@@ -166,30 +169,39 @@ function renameURLLike(
 
 async function renameLink(link: string): Promise<string> {
   const proto = detectProtocol(link);
+
+  if (BLOCKED_PROTOCOLS.has(proto)) return link;
+
+  if (proto === "vmess") {
+    const host = extractHost(link);
+    const ip = host ? await resolveIP(host) : "0.0.0.0";
+    const tag = await buildTag(ip);
+    return renameVmessSafe(link, tag);
+  }
+
   const host = extractHost(link);
   if (!host) return link;
 
   const ip = await resolveIP(host);
   const tag = await buildTag(ip);
 
-  return proto === "vmess"
-    ? renameVmess(link, ip, 443, tag)
-    : renameURLLike(link, ip, 443, tag);
+  return renameURLLike(link, ip, 443, tag);
 }
 
 /* ================= Save ================= */
 
-function saveFile(filePath: string, lines: string[]) {
+function saveFile(p: string, lines: string[]) {
   if (!lines.length) return;
-  fs.writeFileSync(filePath, lines.join("\n"), "utf8");
-  console.log(`✔ Saved ${filePath} (${lines.length})`);
+  fs.writeFileSync(p, lines.join("\n"), "utf8");
+  console.log(`✔ Saved ${p} (${lines.length})`);
 }
 
 function groupByProtocol(links: string[]) {
-  return links.reduce<Record<string, string[]>>((acc, link) => {
-    const proto = detectProtocol(link);
-    acc[proto] ??= [];
-    acc[proto].push(link);
+  return links.reduce<Record<string, string[]>>((acc, l) => {
+    const p = detectProtocol(l);
+    if (BLOCKED_PROTOCOLS.has(p)) return acc;
+    acc[p] ??= [];
+    acc[p].push(l);
     return acc;
   }, {});
 }
@@ -199,20 +211,22 @@ function groupByProtocol(links: string[]) {
 async function main() {
   console.log("🚀 Fetching VPN configs...");
 
-  const allLinks = new Set<string>();
+  const all = new Set<string>();
 
   for (const url of SOURCES) {
     const raw = await fetchText(url);
     const matches = raw.match(/[a-zA-Z][\w+.-]*:\/\/[^\s]+/g) || [];
     console.log(`Fetched ${matches.length} from ${url}`);
-    matches.forEach((l) => allLinks.add(l));
+    matches.forEach((l) => {
+      const proto = detectProtocol(l);
+      if (!BLOCKED_PROTOCOLS.has(proto)) all.add(l);
+    });
   }
 
-  const uniqueLinks = [...allLinks];
-  const grouped = groupByProtocol(uniqueLinks);
+  const unique = [...all];
+  const grouped = groupByProtocol(unique);
 
-  const renamedAll = await parallelMap(uniqueLinks, 20, renameLink);
-
+  const renamedAll = await parallelMap(unique, 20, renameLink);
   saveFile(path.join(OUTPUT_DIR, "all.txt"), renamedAll);
   saveFile(path.join(OUTPUT_DIR, "light.txt"), renamedAll.slice(0, 30));
 
@@ -221,10 +235,10 @@ async function main() {
     saveFile(path.join(OUTPUT_DIR, `${proto}.txt`), renamed);
   }
 
-  console.log("✅ Done FAST.");
+  console.log("✅ Done. Stable & Importable.");
 }
 
-main().catch((err) => {
-  console.error("Fatal error:", err);
+main().catch((e) => {
+  console.error("Fatal error:", e);
   process.exit(1);
 });
