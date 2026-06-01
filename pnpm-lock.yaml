@@ -11,6 +11,9 @@ importers:
       axios:
         specifier: ^1.6.0
         version: 1.13.3
+      maxmind:
+        specifier: ^5.0.6
+        version: 5.0.6
     devDependencies:
       '@types/node':
         specifier: ^20.10.0
@@ -106,6 +109,10 @@ packages:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
     engines: {node: '>= 0.4'}
 
+  maxmind@5.0.6:
+    resolution: {integrity: sha512-5bvd/u+kIaTqaGM+xkXjatzQw1dQfSmlLggr2W1EKMyMxSgx2woZyusLpNpZ4DdPmL+1bbJWeo4LXsi6bC0Iew==}
+    engines: {node: '>=12', npm: '>=6'}
+
   mime-db@1.52.0:
     resolution: {integrity: sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==}
     engines: {node: '>= 0.6'}
@@ -114,8 +121,16 @@ packages:
     resolution: {integrity: sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==}
     engines: {node: '>= 0.6'}
 
+  mmdb-lib@3.0.2:
+    resolution: {integrity: sha512-7e87vk0DdWT647wjcfEtWeMtjm+zVGqNohN/aeIymbUfjHQ2T4Sx5kM+1irVDBSloNC3CkGKxswdMoo8yhqTDg==}
+    engines: {node: '>=10', npm: '>=6'}
+
   proxy-from-env@1.1.0:
     resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
+
+  tiny-lru@13.0.0:
+    resolution: {integrity: sha512-xDHxKKS1FdF0Tv2P+QT7IeSEg74K/8cEDzbv3Tv6UyHHUgBOjOiQiBp818MGj66dhurQus/IBcoAbwIKtSGc6Q==}
+    engines: {node: '>=14'}
 
   typescript@5.9.3:
     resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
@@ -217,13 +232,22 @@ snapshots:
 
   math-intrinsics@1.1.0: {}
 
+  maxmind@5.0.6:
+    dependencies:
+      mmdb-lib: 3.0.2
+      tiny-lru: 13.0.0
+
   mime-db@1.52.0: {}
 
   mime-types@2.1.35:
     dependencies:
       mime-db: 1.52.0
 
+  mmdb-lib@3.0.2: {}
+
   proxy-from-env@1.1.0: {}
+
+  tiny-lru@13.0.0: {}
 
   typescript@5.9.3: {}
 
