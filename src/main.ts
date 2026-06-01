@@ -39,9 +39,10 @@ const BLOCKED_PROTOCOLS = new Set([
   "hy2",
   "tuic",
   "hysteria",
+  "tg",
 ]);
 
-const LIGHT_PER_PROTOCOL = 10;
+
 const TCP_TIMEOUT_MS = 3000;
 const FETCH_RETRIES = 2;
 const PROCESS_CONCURRENCY = 20;
@@ -516,15 +517,6 @@ async function main() {
   // alive.txt — only TCP-reachable from runner
   saveFile(path.join(OUTPUT_DIR, "alive.txt"), aliveConfigs.map((c) => c.renamed));
 
-  // light.txt — top LIGHT_PER_PROTOCOL alive configs per protocol
-  const byProtoAlive: Record<string, string[]> = {};
-  for (const c of aliveConfigs) {
-    byProtoAlive[c.proto] ??= [];
-    byProtoAlive[c.proto].push(c.renamed);
-  }
-  const lightLinks = Object.values(byProtoAlive).flatMap((l) => l.slice(0, LIGHT_PER_PROTOCOL));
-  saveFile(path.join(OUTPUT_DIR, "light.txt"), lightLinks);
-
   // Per-protocol files (all)
   const byProtoAll: Record<string, string[]> = {};
   for (const c of configs) {
@@ -536,6 +528,11 @@ async function main() {
   }
 
   // Per-protocol alive files
+  const byProtoAlive: Record<string, string[]> = {};
+  for (const c of aliveConfigs) {
+    byProtoAlive[c.proto] ??= [];
+    byProtoAlive[c.proto].push(c.renamed);
+  }
   for (const [proto, links] of Object.entries(byProtoAlive)) {
     saveFile(path.join(ALIVE_DIR, `${proto}.txt`), links);
   }
