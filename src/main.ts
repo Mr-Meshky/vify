@@ -29,7 +29,8 @@ const SOURCES = [
 const TELEGRAM_CHANNELS = [
   "v2ray_configs_pool",
   "outline_vpn",
-  "V2ray_Alpha"
+  "V2ray_Alpha",
+  "v2rayngvpn"
 ];
 
 const BLOCKED_PROTOCOLS = new Set([
