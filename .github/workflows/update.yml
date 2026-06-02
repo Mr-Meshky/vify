@@ -18,19 +18,35 @@ jobs:
         with:
           token: ${{ secrets.PAT_TOKEN }}
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "pnpm"
+
+      - name: Get week number for MMDB cache key
+        id: week
+        run: echo "week=$(date +%Y-%V)" >> "$GITHUB_OUTPUT"
+
+      - name: Cache GeoLite2 MMDB
+        uses: actions/cache@v4
+        with:
+          path: GeoLite2-Country.mmdb
+          key: mmdb-${{ steps.week.outputs.week }}
 
       - name: Install dependencies
-        run: npm install
+        run: pnpm install --frozen-lockfile
 
       - name: Build TypeScript
-        run: npm run build
+        run: pnpm run build
 
       - name: Run VPN aggregator script
-        run: npm start
+        run: pnpm start
 
       - name: Configure Git
         run: |

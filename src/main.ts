@@ -40,6 +40,8 @@ const BLOCKED_PROTOCOLS = new Set([
   "tuic",
   "hysteria",
   "tg",
+  'ssr',
+  'socks'
 ]);
 
 
@@ -96,6 +98,13 @@ function b64Decode(str: string): string {
 
 function b64Encode(str: string): string {
   return Buffer.from(str, "utf8").toString("base64");
+}
+
+/* ================= HTML Entity Decoding ================= */
+
+// Telegram HTML and some GitHub sources encode & as &amp; or &amp%3B (where %3B = ;)
+function decodeEntities(s: string): string {
+  return s.replace(/&amp%3B/gi, "&").replace(/&amp;/gi, "&");
 }
 
 /* ================= Parallel ================= */
@@ -229,8 +238,11 @@ async function fetchTelegramChannel(channel: string): Promise<string[]> {
       timeout: 20000,
     });
     const html: string = r.data || "";
-    const matches = html.match(/[a-zA-Z][\w+.-]*:\/\/[^\s"'<>&]+/g) || [];
-    return matches.filter((m) => !BLOCKED_PROTOCOLS.has(detectProtocol(m)));
+    // Don't exclude & so full URLs with &amp; query params are captured
+    const matches = html.match(/[a-zA-Z][\w+.-]*:\/\/[^\s"'<>]+/g) || [];
+    return matches
+      .map((m) => decodeEntities(m.replace(/[&;]+$/, "")))
+      .filter((m) => !BLOCKED_PROTOCOLS.has(detectProtocol(m)));
   } catch {
     return [];
   }
@@ -327,14 +339,228 @@ async function buildTag(ip: string, country: string): Promise<string> {
   return tag;
 }
 
+/* ================= Clash / Sing-box ================= */
+
+function extractTagName(renamed: string): string {
+  const hash = renamed.lastIndexOf("#");
+  if (hash < 0) return renamed.slice(0, 60);
+  try {
+    return decodeURIComponent(renamed.slice(hash + 1));
+  } catch {
+    return renamed.slice(hash + 1);
+  }
+}
+
+function parseSsCredentials(link: string): { method: string; password: string } | null {
+  try {
+    const u = new URL(link);
+    const userInfo = decodeURIComponent(u.username);
+    let decoded = userInfo;
+    if (!/[: ]/.test(userInfo)) {
+      try { decoded = b64Decode(userInfo); } catch {}
+    }
+    const colonIdx = decoded.indexOf(":");
+    if (colonIdx < 0) return null;
+    return { method: decoded.slice(0, colonIdx), password: decoded.slice(colonIdx + 1) };
+  } catch { return null; }
+}
+
+function yamlStr(s: string): string {
+  if (
+    s === "" ||
+    /^[\s]|[\s]$/.test(s) ||
+    /[:{}\[\],|>&*!'"@`#%\\]/.test(s) ||
+    /^(true|false|null|~)/i.test(s) ||
+    /^\d/.test(s)
+  ) {
+    return `"${s.replace(/\\/g, "\\\\").replace(/"/g, '\\"')}"`;
+  }
+  return s;
+}
+
+function serializeYamlVal(v: unknown, indent: number): string {
+  if (v === null || v === undefined) return "~";
+  if (typeof v === "boolean") return v ? "true" : "false";
+  if (typeof v === "number") return String(v);
+  if (typeof v === "string") return yamlStr(v);
+  if (Array.isArray(v)) {
+    if (!v.length) return "[]";
+    const pad = " ".repeat(indent);
+    return "\n" + v.map((item) => `${pad}- ${serializeYamlVal(item, indent + 2)}`).join("\n");
+  }
+  if (typeof v === "object") {
+    const entries = Object.entries(v as Record<string, unknown>).filter(([, val]) => val !== undefined && val !== null);
+    if (!entries.length) return "{}";
+    const pad = " ".repeat(indent);
+    return "\n" + entries.map(([k, val]) => `${pad}${k}: ${serializeYamlVal(val, indent + 2)}`).join("\n");
+  }
+  return String(v);
+}
+
+function toClashYaml(proxies: Record<string, unknown>[]): string {
+  if (!proxies.length) return "proxies: []\n";
+  const lines: string[] = ["proxies:"];
+  for (const proxy of proxies) {
+    const entries = Object.entries(proxy).filter(([, v]) => v !== undefined && v !== null);
+    let first = true;
+    for (const [k, v] of entries) {
+      lines.push(`${first ? "  - " : "    "}${k}: ${serializeYamlVal(v, 6)}`);
+      first = false;
+    }
+  }
+  return lines.join("\n") + "\n";
+}
+
+function configToClash(c: ProcessedConfig): Record<string, unknown> | null {
+  const name = extractTagName(c.renamed);
+  const server = c.ip || extractHost(c.original);
+  const port = c.port;
+  try {
+    if (c.proto === "vmess") {
+      const cfg = JSON.parse(b64Decode(c.original.replace("vmess://", "").trim()));
+      const network = cfg.net || "tcp";
+      const proxy: Record<string, unknown> = {
+        name, type: "vmess", server, port,
+        uuid: cfg.id || "", alterId: parseInt(cfg.aid, 10) || 0,
+        cipher: "auto", network, tls: cfg.tls === "tls",
+      };
+      if (cfg.tls === "tls") proxy.servername = cfg.sni || cfg.host || "";
+      if (network === "ws") proxy["ws-opts"] = { path: cfg.path || "/", headers: { Host: cfg.host || cfg.add || "" } };
+      if (network === "grpc") proxy["grpc-opts"] = { "grpc-service-name": cfg.path || "" };
+      return proxy;
+    }
+    if (c.proto === "vless") {
+      const u = new URL(c.original);
+      const p = u.searchParams;
+      const security = p.get("security") || "none";
+      const network = p.get("type") || "tcp";
+      const proxy: Record<string, unknown> = {
+        name, type: "vless", server, port, uuid: u.username,
+        network, tls: security === "tls" || security === "reality", udp: true,
+      };
+      if (p.get("flow")) proxy.flow = p.get("flow");
+      if (security === "reality") {
+        proxy.servername = p.get("sni") || "";
+        proxy["client-fingerprint"] = p.get("fp") || "chrome";
+        proxy["reality-opts"] = { "public-key": p.get("pbk") || "", "short-id": p.get("sid") || "" };
+      } else if (security === "tls") {
+        proxy.servername = p.get("sni") || "";
+        proxy["skip-cert-verify"] = p.get("insecure") === "1";
+        const alpn = p.get("alpn");
+        if (alpn) proxy.alpn = alpn.split(",");
+      }
+      if (network === "ws") proxy["ws-opts"] = { path: p.get("path") || "/", headers: { Host: p.get("host") || "" } };
+      if (network === "grpc") proxy["grpc-opts"] = { "grpc-service-name": p.get("serviceName") || p.get("path") || "" };
+      return proxy;
+    }
+    if (c.proto === "trojan") {
+      const u = new URL(c.original);
+      const p = u.searchParams;
+      const network = p.get("type") || "tcp";
+      const proxy: Record<string, unknown> = {
+        name, type: "trojan", server, port, password: u.username,
+        sni: p.get("sni") || "", "skip-cert-verify": p.get("insecure") === "1",
+        network, udp: true,
+      };
+      if (network === "ws") proxy["ws-opts"] = { path: p.get("path") || "/", headers: { Host: p.get("host") || "" } };
+      if (network === "grpc") proxy["grpc-opts"] = { "grpc-service-name": p.get("serviceName") || "" };
+      return proxy;
+    }
+    if (c.proto === "ss") {
+      const creds = parseSsCredentials(c.original);
+      if (!creds) return null;
+      return { name, type: "ss", server, port, cipher: creds.method, password: creds.password, udp: true };
+    }
+  } catch { return null; }
+  return null;
+}
+
+function configToSingbox(c: ProcessedConfig): Record<string, unknown> | null {
+  const tag = extractTagName(c.renamed);
+  const server = c.ip || extractHost(c.original);
+  const port = c.port;
+  try {
+    if (c.proto === "vmess") {
+      const cfg = JSON.parse(b64Decode(c.original.replace("vmess://", "").trim()));
+      const network = cfg.net || "tcp";
+      const out: Record<string, unknown> = {
+        type: "vmess", tag, server, server_port: port,
+        uuid: cfg.id || "", security: "auto", alter_id: parseInt(cfg.aid, 10) || 0,
+      };
+      if (cfg.tls === "tls") out.tls = { enabled: true, server_name: cfg.sni || cfg.host || "", insecure: false };
+      if (network === "ws") out.transport = { type: "ws", path: cfg.path || "/", headers: { Host: cfg.host || cfg.add || "" } };
+      if (network === "grpc") out.transport = { type: "grpc", service_name: cfg.path || "" };
+      return out;
+    }
+    if (c.proto === "vless") {
+      const u = new URL(c.original);
+      const p = u.searchParams;
+      const security = p.get("security") || "none";
+      const network = p.get("type") || "tcp";
+      const out: Record<string, unknown> = { type: "vless", tag, server, server_port: port, uuid: u.username };
+      if (p.get("flow")) out.flow = p.get("flow");
+      if (security === "reality") {
+        out.tls = {
+          enabled: true, server_name: p.get("sni") || "",
+          utls: { enabled: true, fingerprint: p.get("fp") || "chrome" },
+          reality: { enabled: true, public_key: p.get("pbk") || "", short_id: p.get("sid") || "" },
+        };
+      } else if (security === "tls") {
+        const alpn = p.get("alpn");
+        out.tls = {
+          enabled: true, server_name: p.get("sni") || "",
+          insecure: p.get("insecure") === "1",
+          ...(alpn ? { alpn: alpn.split(",") } : {}),
+        };
+      }
+      if (network === "ws") out.transport = { type: "ws", path: p.get("path") || "/", headers: { Host: p.get("host") || "" } };
+      if (network === "grpc") out.transport = { type: "grpc", service_name: p.get("serviceName") || p.get("path") || "" };
+      return out;
+    }
+    if (c.proto === "trojan") {
+      const u = new URL(c.original);
+      const p = u.searchParams;
+      const network = p.get("type") || "tcp";
+      const out: Record<string, unknown> = {
+        type: "trojan", tag, server, server_port: port, password: u.username,
+        tls: { enabled: true, server_name: p.get("sni") || "", insecure: p.get("insecure") === "1" },
+      };
+      if (network === "ws") out.transport = { type: "ws", path: p.get("path") || "/", headers: { Host: p.get("host") || "" } };
+      if (network === "grpc") out.transport = { type: "grpc", service_name: p.get("serviceName") || "" };
+      return out;
+    }
+    if (c.proto === "ss") {
+      const creds = parseSsCredentials(c.original);
+      if (!creds) return null;
+      return { type: "shadowsocks", tag, server, server_port: port, method: creds.method, password: creds.password };
+    }
+  } catch { return null; }
+  return null;
+}
+
 /* ================= Dedup ================= */
 
-function dedupByIPPort(links: string[]): string[] {
+function extractUUID(link: string, proto: string): string {
+  if (proto === "vmess") {
+    try {
+      const cfg = JSON.parse(b64Decode(link.replace("vmess://", "").trim()));
+      return cfg.id || "";
+    } catch { return ""; }
+  }
+  try {
+    return new URL(link).username || "";
+  } catch { return ""; }
+}
+
+// Dedup by proto:host:port:uuid — keeps configs sharing IP:port but with different UUIDs
+function dedupByIPPortUUID(links: string[]): string[] {
   const seen = new Set<string>();
   return links.filter((link) => {
+    const proto = detectProtocol(link);
     const host = extractHost(link);
     const port = extractPort(link);
-    const key = `${host || link}:${port}`;
+    const uuid = extractUUID(link, proto);
+    const key = `${proto}:${host || link}:${port}:${uuid}`;
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -404,6 +630,18 @@ function saveFile(filePath: string, lines: string[]) {
   console.log(`  ✔ ${filePath} (${lines.length})`);
 }
 
+function saveClash(aliveConfigs: ProcessedConfig[]) {
+  const proxies = aliveConfigs.map(configToClash).filter((p): p is Record<string, unknown> => p !== null);
+  fs.writeFileSync(path.join(OUTPUT_DIR, "clash.yaml"), toClashYaml(proxies), "utf8");
+  console.log(`  ✔ clash.yaml (${proxies.length})`);
+}
+
+function saveSingbox(aliveConfigs: ProcessedConfig[]) {
+  const outbounds = aliveConfigs.map(configToSingbox).filter((o): o is Record<string, unknown> => o !== null);
+  fs.writeFileSync(path.join(OUTPUT_DIR, "singbox.json"), JSON.stringify({ outbounds }, null, 2), "utf8");
+  console.log(`  ✔ singbox.json (${outbounds.length})`);
+}
+
 function saveStats(configs: ProcessedConfig[], sourceStats: Record<string, number>) {
   const stats: Stats = {
     total: configs.length,
@@ -457,7 +695,9 @@ async function main() {
   for (const url of SOURCES) {
     const raw = await fetchText(url);
     const matches = raw.match(/[a-zA-Z][\w+.-]*:\/\/[^\s]+/g) || [];
-    const valid = matches.filter((l) => !BLOCKED_PROTOCOLS.has(detectProtocol(l)));
+    const valid = matches
+      .map(decodeEntities)
+      .filter((l) => !BLOCKED_PROTOCOLS.has(detectProtocol(l)));
     sourceStats[url] = valid.length;
     console.log(`  ${String(valid.length).padStart(4)} ← ${url}`);
     valid.forEach((l) => rawSet.add(l));
@@ -472,9 +712,9 @@ async function main() {
     links.forEach((l) => rawSet.add(l));
   }
 
-  console.log(`\n📊 Raw total:          ${rawSet.size}`);
-  const deduped = dedupByIPPort([...rawSet]);
-  console.log(`📊 After IP:port dedup: ${deduped.length}`);
+  console.log(`\n📊 Raw total:                    ${rawSet.size}`);
+  const deduped = dedupByIPPortUUID([...rawSet]);
+  console.log(`📊 After proto:ip:port:uuid dedup: ${deduped.length}`);
 
   // Phase 1: Resolve all IPs in parallel (populate ipCache)
   console.log("\n🔍 Phase 1: Resolving IPs...");
@@ -516,6 +756,10 @@ async function main() {
 
   // alive.txt — only TCP-reachable from runner
   saveFile(path.join(OUTPUT_DIR, "alive.txt"), aliveConfigs.map((c) => c.renamed));
+
+  // Clash Meta and Sing-box (alive only, structured formats)
+  saveClash(aliveConfigs);
+  saveSingbox(aliveConfigs);
 
   // Per-protocol files (all)
   const byProtoAll: Record<string, string[]> = {};
