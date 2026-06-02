@@ -30,7 +30,8 @@ const TELEGRAM_CHANNELS = [
   "v2ray_configs_pool",
   "outline_vpn",
   "V2ray_Alpha",
-  "v2rayngvpn"
+  "v2rayngvpn",
+  "on_proxy1"
 ];
 
 const BLOCKED_PROTOCOLS = new Set([
