@@ -1,19 +1,19 @@
 {
-  "total": 1692,
-  "alive": 962,
-  "dead": 730,
+  "total": 1684,
+  "alive": 950,
+  "dead": 734,
   "byProtocol": {
     "vless": {
-      "total": 891,
-      "alive": 628
+      "total": 885,
+      "alive": 623
     },
     "ss": {
       "total": 565,
-      "alive": 204
+      "alive": 201
     },
     "trojan": {
-      "total": 150,
-      "alive": 100
+      "total": 148,
+      "alive": 96
     },
     "vmess": {
       "total": 81,
@@ -26,27 +26,27 @@
   },
   "byCountry": {
     "CA": {
-      "total": 261,
-      "alive": 253
-    },
-    "US": {
-      "total": 184,
-      "alive": 140
+      "total": 256,
+      "alive": 249
     },
     "RU": {
-      "total": 181,
-      "alive": 121
+      "total": 183,
+      "alive": 119
+    },
+    "US": {
+      "total": 182,
+      "alive": 139
     },
     "DE": {
       "total": 107,
-      "alive": 66
+      "alive": 63
     },
     "PL": {
       "total": 106,
-      "alive": 53
+      "alive": 50
     },
     "UN": {
-      "total": 91,
+      "total": 90,
       "alive": 0
     },
     "VN": {
@@ -54,35 +54,35 @@
       "alive": 0
     },
     "NL": {
-      "total": 76,
-      "alive": 59
+      "total": 75,
+      "alive": 58
+    },
+    "GB": {
+      "total": 55,
+      "alive": 44
     },
     "FR": {
       "total": 54,
-      "alive": 32
-    },
-    "GB": {
-      "total": 54,
-      "alive": 44
+      "alive": 34
     },
     "SC": {
-      "total": 50,
-      "alive": 29
+      "total": 52,
+      "alive": 31
     },
     "IR": {
-      "total": 32,
-      "alive": 8
+      "total": 30,
+      "alive": 5
     },
     "FI": {
-      "total": 24,
-      "alive": 16
+      "total": 23,
+      "alive": 15
     },
     "CH": {
       "total": 23,
       "alive": 7
     },
     "IT": {
-      "total": 23,
+      "total": 22,
       "alive": 18
     },
     "RO": {
@@ -99,7 +99,7 @@
     },
     "JP": {
       "total": 15,
-      "alive": 10
+      "alive": 11
     },
     "BR": {
       "total": 14,
@@ -111,7 +111,7 @@
     },
     "SE": {
       "total": 13,
-      "alive": 4
+      "alive": 5
     },
     "KR": {
       "total": 12,
@@ -143,19 +143,19 @@
     },
     "TR": {
       "total": 10,
-      "alive": 7
+      "alive": 6
     },
     "GR": {
       "total": 10,
       "alive": 0
     },
+    "HU": {
+      "total": 9,
+      "alive": 4
+    },
     "AE": {
       "total": 8,
       "alive": 4
-    },
-    "HU": {
-      "total": 8,
-      "alive": 3
     },
     "ES": {
       "total": 8,
@@ -217,10 +217,6 @@
       "total": 3,
       "alive": 3
     },
-    "AT": {
-      "total": 3,
-      "alive": 3
-    },
     "KH": {
       "total": 3,
       "alive": 0
@@ -232,6 +228,14 @@
     "BG": {
       "total": 3,
       "alive": 1
+    },
+    "TH": {
+      "total": 2,
+      "alive": 2
+    },
+    "AT": {
+      "total": 2,
+      "alive": 2
     },
     "BE": {
       "total": 2,
@@ -253,17 +257,9 @@
       "total": 2,
       "alive": 0
     },
-    "IQ": {
-      "total": 2,
-      "alive": 0
-    },
     "AL": {
       "total": 2,
       "alive": 2
-    },
-    "TH": {
-      "total": 1,
-      "alive": 1
     },
     "CN": {
       "total": 1,
@@ -305,6 +301,10 @@
       "total": 1,
       "alive": 0
     },
+    "IQ": {
+      "total": 1,
+      "alive": 0
+    },
     "NZ": {
       "total": 1,
       "alive": 1
@@ -316,13 +316,13 @@
     "https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt": 603,
     "https://raw.githubusercontent.com/parvinxs/Submahsanetxsparvin/refs/heads/main/Sub.mahsa.xsparvin": 1169,
     "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.txt": 199,
-    "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub": 5,
+    "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub": 4,
     "t.me/s/v2ray_configs_pool": 18,
     "t.me/s/outline_vpn": 109,
     "t.me/s/V2ray_Alpha": 27,
-    "t.me/s/v2rayngvpn": 85,
+    "t.me/s/v2rayngvpn": 58,
     "t.me/s/on_proxy1": 19
   },
   "note": "alive = TCP port reachable from GitHub Actions runner (not guaranteed to work inside Iran)",
-  "generatedAt": "2026-06-08T20:08:41.711Z"
+  "generatedAt": "2026-06-08T22:23:20.839Z"
 }
