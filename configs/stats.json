@@ -1,15 +1,15 @@
 {
-  "total": 1776,
+  "total": 1781,
   "alive": 1035,
-  "dead": 741,
+  "dead": 746,
   "byProtocol": {
     "vless": {
-      "total": 941,
-      "alive": 676
+      "total": 946,
+      "alive": 682
     },
     "ss": {
       "total": 614,
-      "alive": 212
+      "alive": 206
     },
     "trojan": {
       "total": 160,
@@ -34,20 +34,20 @@
       "alive": 128
     },
     "NL": {
-      "total": 154,
-      "alive": 133
+      "total": 157,
+      "alive": 138
     },
     "RU": {
       "total": 148,
-      "alive": 91
+      "alive": 90
     },
     "PL": {
-      "total": 106,
-      "alive": 58
+      "total": 107,
+      "alive": 50
     },
     "DE": {
-      "total": 99,
-      "alive": 57
+      "total": 97,
+      "alive": 56
     },
     "UN": {
       "total": 90,
@@ -58,8 +58,8 @@
       "alive": 1
     },
     "RO": {
-      "total": 71,
-      "alive": 69
+      "total": 75,
+      "alive": 73
     },
     "GB": {
       "total": 64,
@@ -67,11 +67,11 @@
     },
     "FR": {
       "total": 46,
-      "alive": 27
+      "alive": 26
     },
     "SC": {
-      "total": 40,
-      "alive": 19
+      "total": 41,
+      "alive": 20
     },
     "SG": {
       "total": 27,
@@ -89,25 +89,21 @@
       "total": 21,
       "alive": 14
     },
+    "JP": {
+      "total": 20,
+      "alive": 14
+    },
     "FI": {
       "total": 20,
       "alive": 14
     },
-    "JP": {
-      "total": 19,
-      "alive": 13
-    },
     "IT": {
       "total": 19,
-      "alive": 13
+      "alive": 14
     },
     "MD": {
       "total": 14,
       "alive": 0
-    },
-    "TR": {
-      "total": 13,
-      "alive": 9
     },
     "BR": {
       "total": 13,
@@ -116,6 +112,14 @@
     "KR": {
       "total": 12,
       "alive": 10
+    },
+    "KZ": {
+      "total": 11,
+      "alive": 3
+    },
+    "TR": {
+      "total": 11,
+      "alive": 6
     },
     "IL": {
       "total": 11,
@@ -129,10 +133,6 @@
       "total": 10,
       "alive": 5
     },
-    "KZ": {
-      "total": 10,
-      "alive": 2
-    },
     "GR": {
       "total": 10,
       "alive": 0
@@ -141,17 +141,13 @@
       "total": 9,
       "alive": 1
     },
-    "UA": {
-      "total": 9,
-      "alive": 2
-    },
     "MY": {
       "total": 9,
       "alive": 2
     },
     "TW": {
       "total": 8,
-      "alive": 6
+      "alive": 8
     },
     "EG": {
       "total": 7,
@@ -166,6 +162,10 @@
       "alive": 0
     },
     "KW": {
+      "total": 7,
+      "alive": 0
+    },
+    "UA": {
       "total": 7,
       "alive": 0
     },
@@ -253,10 +253,6 @@
       "total": 2,
       "alive": 2
     },
-    "IQ": {
-      "total": 2,
-      "alive": 1
-    },
     "SI": {
       "total": 2,
       "alive": 0
@@ -269,6 +265,10 @@
       "total": 2,
       "alive": 0
     },
+    "BG": {
+      "total": 2,
+      "alive": 1
+    },
     "CN": {
       "total": 1,
       "alive": 0
@@ -278,6 +278,10 @@
       "alive": 1
     },
     "CL": {
+      "total": 1,
+      "alive": 1
+    },
+    "IQ": {
       "total": 1,
       "alive": 1
     },
@@ -301,10 +305,6 @@
       "total": 1,
       "alive": 0
     },
-    "BG": {
-      "total": 1,
-      "alive": 0
-    },
     "ID": {
       "total": 1,
       "alive": 1
@@ -316,7 +316,7 @@
     "https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt": 640,
     "https://raw.githubusercontent.com/parvinxs/Submahsanetxsparvin/refs/heads/main/Sub.mahsa.xsparvin": 1169,
     "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.txt": 199,
-    "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub": 17,
+    "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub": 16,
     "t.me/s/v2ray_configs_pool": 0,
     "t.me/s/outline_vpn": 123,
     "t.me/s/V2ray_Alpha": 151,
@@ -324,5 +324,5 @@
     "t.me/s/on_proxy1": 15
   },
   "note": "alive = TCP port reachable from GitHub Actions runner (not guaranteed to work inside Iran)",
-  "generatedAt": "2026-06-19T19:44:05.818Z"
+  "generatedAt": "2026-06-19T21:06:26.425Z"
 }
