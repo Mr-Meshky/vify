@@ -1,23 +1,23 @@
 {
-  "total": 1771,
-  "alive": 1017,
-  "dead": 754,
+  "total": 1785,
+  "alive": 1041,
+  "dead": 744,
   "byProtocol": {
     "vless": {
-      "total": 930,
-      "alive": 651
+      "total": 945,
+      "alive": 669
     },
     "ss": {
-      "total": 551,
-      "alive": 161
+      "total": 550,
+      "alive": 160
     },
     "trojan": {
       "total": 226,
-      "alive": 185
+      "alive": 191
     },
     "vmess": {
       "total": 62,
-      "alive": 20
+      "alive": 21
     },
     "slipnet-enc": {
       "total": 2,
@@ -26,20 +26,20 @@
   },
   "byCountry": {
     "CA": {
-      "total": 326,
-      "alive": 306
+      "total": 331,
+      "alive": 312
     },
     "US": {
-      "total": 183,
-      "alive": 134
+      "total": 182,
+      "alive": 132
     },
     "RU": {
-      "total": 155,
-      "alive": 94
+      "total": 161,
+      "alive": 102
     },
     "DE": {
       "total": 116,
-      "alive": 76
+      "alive": 80
     },
     "PL": {
       "total": 105,
@@ -58,20 +58,20 @@
       "alive": 0
     },
     "GB": {
-      "total": 59,
-      "alive": 46
+      "total": 61,
+      "alive": 49
     },
     "SC": {
-      "total": 53,
-      "alive": 32
+      "total": 54,
+      "alive": 33
     },
     "FR": {
       "total": 44,
-      "alive": 23
+      "alive": 27
     },
     "IT": {
-      "total": 34,
-      "alive": 26
+      "total": 33,
+      "alive": 25
     },
     "CY": {
       "total": 32,
@@ -79,7 +79,7 @@
     },
     "FI": {
       "total": 32,
-      "alive": 23
+      "alive": 24
     },
     "IR": {
       "total": 26,
@@ -90,8 +90,8 @@
       "alive": 9
     },
     "HK": {
-      "total": 19,
-      "alive": 12
+      "total": 20,
+      "alive": 13
     },
     "RO": {
       "total": 18,
@@ -109,13 +109,13 @@
       "total": 15,
       "alive": 1
     },
+    "AE": {
+      "total": 14,
+      "alive": 8
+    },
     "BR": {
       "total": 14,
       "alive": 1
-    },
-    "AE": {
-      "total": 13,
-      "alive": 7
     },
     "KR": {
       "total": 11,
@@ -125,9 +125,13 @@
       "total": 11,
       "alive": 0
     },
+    "TR": {
+      "total": 10,
+      "alive": 5
+    },
     "CH": {
       "total": 10,
-      "alive": 3
+      "alive": 2
     },
     "MY": {
       "total": 10,
@@ -145,17 +149,13 @@
       "total": 10,
       "alive": 0
     },
-    "TR": {
-      "total": 9,
-      "alive": 4
-    },
     "AU": {
       "total": 9,
       "alive": 3
     },
     "ES": {
       "total": 8,
-      "alive": 4
+      "alive": 3
     },
     "LV": {
       "total": 8,
@@ -181,17 +181,17 @@
       "total": 7,
       "alive": 0
     },
-    "IN": {
-      "total": 7,
-      "alive": 2
-    },
     "EE": {
       "total": 6,
-      "alive": 0
+      "alive": 1
     },
     "HU": {
       "total": 6,
       "alive": 0
+    },
+    "IN": {
+      "total": 6,
+      "alive": 1
     },
     "PK": {
       "total": 5,
@@ -227,7 +227,7 @@
     },
     "TW": {
       "total": 3,
-      "alive": 2
+      "alive": 1
     },
     "BG": {
       "total": 2,
@@ -297,7 +297,7 @@
   "sources": {
     "https://raw.githubusercontent.com/MrAbolfazlNorouzi/iran-configs/refs/heads/main/configs/working-configs.txt": 5,
     "https://raw.githubusercontent.com/arshiacomplus/v2rayExtractor/refs/heads/main/mix/sub.html": 371,
-    "https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt": 736,
+    "https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt": 750,
     "https://raw.githubusercontent.com/parvinxs/Submahsanetxsparvin/refs/heads/main/Sub.mahsa.xsparvin": 1169,
     "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.txt": 199,
     "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub": 12,
@@ -308,5 +308,5 @@
     "t.me/s/on_proxy1": 47
   },
   "note": "alive = TCP port reachable from GitHub Actions runner (not guaranteed to work inside Iran)",
-  "generatedAt": "2026-06-29T21:22:45.404Z"
+  "generatedAt": "2026-06-29T22:52:46.479Z"
 }
