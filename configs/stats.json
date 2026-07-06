@@ -1,7 +1,7 @@
 {
   "total": 1993,
-  "alive": 1273,
-  "dead": 720,
+  "alive": 1267,
+  "dead": 726,
   "byProtocol": {
     "vless": {
       "total": 1116,
@@ -9,7 +9,7 @@
     },
     "ss": {
       "total": 554,
-      "alive": 176
+      "alive": 171
     },
     "trojan": {
       "total": 253,
@@ -17,7 +17,7 @@
     },
     "vmess": {
       "total": 68,
-      "alive": 29
+      "alive": 28
     },
     "slipnet-enc": {
       "total": 2,
@@ -26,28 +26,28 @@
   },
   "byCountry": {
     "CA": {
-      "total": 379,
-      "alive": 374
+      "total": 375,
+      "alive": 369
     },
     "RU": {
-      "total": 284,
-      "alive": 229
+      "total": 285,
+      "alive": 228
     },
     "US": {
-      "total": 197,
-      "alive": 145
+      "total": 201,
+      "alive": 150
     },
     "DE": {
-      "total": 126,
+      "total": 127,
       "alive": 68
     },
     "PL": {
       "total": 107,
-      "alive": 48
+      "alive": 45
     },
     "NL": {
       "total": 85,
-      "alive": 66
+      "alive": 64
     },
     "VN": {
       "total": 81,
@@ -59,15 +59,15 @@
     },
     "FR": {
       "total": 65,
-      "alive": 43
+      "alive": 44
     },
     "SC": {
-      "total": 65,
-      "alive": 44
+      "total": 64,
+      "alive": 43
     },
     "GB": {
       "total": 62,
-      "alive": 53
+      "alive": 54
     },
     "CY": {
       "total": 31,
@@ -75,7 +75,7 @@
     },
     "FI": {
       "total": 28,
-      "alive": 21
+      "alive": 22
     },
     "IR": {
       "total": 28,
@@ -87,7 +87,7 @@
     },
     "SG": {
       "total": 25,
-      "alive": 12
+      "alive": 11
     },
     "AE": {
       "total": 25,
@@ -185,10 +185,6 @@
       "total": 6,
       "alive": 0
     },
-    "BG": {
-      "total": 5,
-      "alive": 3
-    },
     "EE": {
       "total": 5,
       "alive": 0
@@ -196,6 +192,10 @@
     "PK": {
       "total": 5,
       "alive": 0
+    },
+    "BG": {
+      "total": 4,
+      "alive": 2
     },
     "TW": {
       "total": 4,
@@ -304,7 +304,7 @@
     "https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt": 1126,
     "https://raw.githubusercontent.com/parvinxs/Submahsanetxsparvin/refs/heads/main/Sub.mahsa.xsparvin": 1169,
     "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.txt": 199,
-    "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub": 5,
+    "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub": 6,
     "t.me/s/v2ray_configs_pool": 0,
     "t.me/s/outline_vpn": 103,
     "t.me/s/V2ray_Alpha": 42,
@@ -312,5 +312,5 @@
     "t.me/s/on_proxy1": 50
   },
   "note": "alive = TCP port reachable from GitHub Actions runner (not guaranteed to work inside Iran)",
-  "generatedAt": "2026-07-05T23:01:15.142Z"
+  "generatedAt": "2026-07-06T00:13:43.947Z"
 }
