@@ -1,23 +1,23 @@
 {
-  "total": 1930,
-  "alive": 1192,
+  "total": 1934,
+  "alive": 1196,
   "dead": 738,
   "byProtocol": {
     "vless": {
-      "total": 1054,
-      "alive": 792
+      "total": 1059,
+      "alive": 795
     },
     "ss": {
-      "total": 553,
-      "alive": 161
+      "total": 554,
+      "alive": 165
     },
     "trojan": {
       "total": 248,
-      "alive": 206
+      "alive": 205
     },
     "vmess": {
-      "total": 73,
-      "alive": 33
+      "total": 71,
+      "alive": 31
     },
     "slipnet-enc": {
       "total": 2,
@@ -26,27 +26,27 @@
   },
   "byCountry": {
     "CA": {
-      "total": 360,
-      "alive": 355
+      "total": 364,
+      "alive": 359
     },
     "RU": {
-      "total": 241,
-      "alive": 183
+      "total": 245,
+      "alive": 187
     },
     "US": {
-      "total": 214,
-      "alive": 162
+      "total": 213,
+      "alive": 161
     },
     "DE": {
-      "total": 112,
+      "total": 113,
       "alive": 65
     },
     "PL": {
-      "total": 108,
-      "alive": 41
+      "total": 107,
+      "alive": 47
     },
     "UN": {
-      "total": 88,
+      "total": 87,
       "alive": 0
     },
     "VN": {
@@ -62,12 +62,12 @@
       "alive": 44
     },
     "GB": {
-      "total": 64,
-      "alive": 54
+      "total": 65,
+      "alive": 55
     },
     "FR": {
-      "total": 61,
-      "alive": 43
+      "total": 62,
+      "alive": 41
     },
     "FI": {
       "total": 32,
@@ -79,15 +79,15 @@
     },
     "IT": {
       "total": 27,
-      "alive": 12
+      "alive": 10
     },
     "SG": {
-      "total": 22,
+      "total": 23,
       "alive": 8
     },
     "IR": {
-      "total": 20,
-      "alive": 4
+      "total": 19,
+      "alive": 3
     },
     "HK": {
       "total": 19,
@@ -101,13 +101,9 @@
       "total": 17,
       "alive": 10
     },
-    "AE": {
-      "total": 16,
-      "alive": 13
-    },
     "BR": {
       "total": 15,
-      "alive": 3
+      "alive": 1
     },
     "MD": {
       "total": 15,
@@ -116,6 +112,10 @@
     "SE": {
       "total": 14,
       "alive": 7
+    },
+    "AE": {
+      "total": 14,
+      "alive": 11
     },
     "KZ": {
       "total": 12,
@@ -127,7 +127,7 @@
     },
     "IN": {
       "total": 11,
-      "alive": 4
+      "alive": 6
     },
     "SA": {
       "total": 11,
@@ -135,7 +135,7 @@
     },
     "AU": {
       "total": 10,
-      "alive": 4
+      "alive": 3
     },
     "MY": {
       "total": 10,
@@ -153,13 +153,13 @@
       "total": 9,
       "alive": 9
     },
-    "TR": {
-      "total": 8,
-      "alive": 2
-    },
     "RO": {
       "total": 8,
       "alive": 6
+    },
+    "TR": {
+      "total": 7,
+      "alive": 1
     },
     "EG": {
       "total": 7,
@@ -181,12 +181,12 @@
       "total": 6,
       "alive": 4
     },
-    "EE": {
-      "total": 6,
-      "alive": 1
-    },
     "HU": {
       "total": 6,
+      "alive": 0
+    },
+    "EE": {
+      "total": 5,
       "alive": 0
     },
     "PK": {
@@ -301,10 +301,10 @@
   "sources": {
     "https://raw.githubusercontent.com/MrAbolfazlNorouzi/iran-configs/refs/heads/main/configs/working-configs.txt": 5,
     "https://raw.githubusercontent.com/arshiacomplus/v2rayExtractor/refs/heads/main/mix/sub.html": 438,
-    "https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt": 984,
+    "https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt": 979,
     "https://raw.githubusercontent.com/parvinxs/Submahsanetxsparvin/refs/heads/main/Sub.mahsa.xsparvin": 1169,
     "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.txt": 200,
-    "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub": 12,
+    "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub": 16,
     "t.me/s/v2ray_configs_pool": 0,
     "t.me/s/outline_vpn": 101,
     "t.me/s/V2ray_Alpha": 26,
@@ -312,5 +312,5 @@
     "t.me/s/on_proxy1": 50
   },
   "note": "alive = TCP port reachable from GitHub Actions runner (not guaranteed to work inside Iran)",
-  "generatedAt": "2026-07-07T23:55:17.856Z"
+  "generatedAt": "2026-07-08T02:10:49.306Z"
 }
