@@ -1,23 +1,23 @@
 {
-  "total": 2237,
-  "alive": 1532,
-  "dead": 705,
+  "total": 2238,
+  "alive": 1506,
+  "dead": 732,
   "byProtocol": {
     "vless": {
-      "total": 1104,
-      "alive": 848
+      "total": 1103,
+      "alive": 820
     },
     "trojan": {
       "total": 590,
       "alive": 564
     },
     "ss": {
-      "total": 503,
-      "alive": 113
+      "total": 504,
+      "alive": 114
     },
     "vmess": {
-      "total": 40,
-      "alive": 7
+      "total": 41,
+      "alive": 8
     }
   },
   "byCountry": {
@@ -35,7 +35,7 @@
     },
     "RU": {
       "total": 169,
-      "alive": 109
+      "alive": 107
     },
     "PL": {
       "total": 113,
@@ -43,19 +43,19 @@
     },
     "DE": {
       "total": 111,
-      "alive": 77
+      "alive": 75
     },
     "SG": {
       "total": 110,
       "alive": 97
     },
+    "UN": {
+      "total": 85,
+      "alive": 0
+    },
     "GB": {
       "total": 84,
       "alive": 77
-    },
-    "UN": {
-      "total": 83,
-      "alive": 0
     },
     "KR": {
       "total": 80,
@@ -66,12 +66,12 @@
       "alive": 0
     },
     "NL": {
-      "total": 76,
-      "alive": 51
+      "total": 75,
+      "alive": 50
     },
     "FR": {
-      "total": 61,
-      "alive": 42
+      "total": 60,
+      "alive": 40
     },
     "SC": {
       "total": 49,
@@ -79,7 +79,7 @@
     },
     "CY": {
       "total": 32,
-      "alive": 24
+      "alive": 3
     },
     "FI": {
       "total": 24,
@@ -137,17 +137,17 @@
       "total": 10,
       "alive": 0
     },
+    "IN": {
+      "total": 9,
+      "alive": 4
+    },
     "UA": {
       "total": 9,
-      "alive": 1
+      "alive": 2
     },
     "KZ": {
       "total": 9,
       "alive": 1
-    },
-    "IN": {
-      "total": 8,
-      "alive": 3
     },
     "HU": {
       "total": 8,
@@ -312,5 +312,5 @@
     "t.me/s/on_proxy1": 49
   },
   "note": "alive = TCP port reachable from GitHub Actions runner (not guaranteed to work inside Iran)",
-  "generatedAt": "2026-07-18T22:44:52.770Z"
+  "generatedAt": "2026-07-18T23:49:41.945Z"
 }
