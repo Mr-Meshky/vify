@@ -1,141 +1,137 @@
 {
-  "total": 2375,
-  "alive": 1599,
-  "dead": 776,
+  "total": 2354,
+  "alive": 1576,
+  "dead": 778,
   "byProtocol": {
     "vless": {
-      "total": 1124,
-      "alive": 833
+      "total": 1105,
+      "alive": 820
     },
     "trojan": {
-      "total": 644,
-      "alive": 603
+      "total": 645,
+      "alive": 598
     },
     "ss": {
-      "total": 555,
-      "alive": 145
+      "total": 548,
+      "alive": 140
     },
     "vmess": {
-      "total": 51,
+      "total": 56,
       "alive": 18
-    },
-    "slipnet-enc": {
-      "total": 1,
-      "alive": 0
     }
   },
   "byCountry": {
     "CA": {
-      "total": 437,
-      "alive": 432
+      "total": 460,
+      "alive": 448
     },
     "US": {
-      "total": 291,
+      "total": 283,
       "alive": 255
     },
     "RU": {
-      "total": 169,
-      "alive": 110
-    },
-    "DE": {
-      "total": 152,
-      "alive": 93
+      "total": 157,
+      "alive": 100
     },
     "PL": {
       "total": 143,
       "alive": 43
     },
+    "DE": {
+      "total": 141,
+      "alive": 91
+    },
     "NL": {
-      "total": 114,
-      "alive": 86
+      "total": 112,
+      "alive": 87
     },
     "HK": {
-      "total": 104,
-      "alive": 96
-    },
-    "UN": {
-      "total": 99,
-      "alive": 0
+      "total": 100,
+      "alive": 92
     },
     "GB": {
-      "total": 96,
-      "alive": 87
+      "total": 98,
+      "alive": 86
+    },
+    "UN": {
+      "total": 97,
+      "alive": 0
     },
     "VN": {
       "total": 80,
       "alive": 0
     },
     "FR": {
-      "total": 72,
-      "alive": 53
+      "total": 75,
+      "alive": 52
     },
     "SC": {
-      "total": 61,
-      "alive": 40
+      "total": 60,
+      "alive": 39
     },
     "SG": {
-      "total": 49,
-      "alive": 35
+      "total": 47,
+      "alive": 34
     },
     "AU": {
       "total": 46,
       "alive": 40
     },
     "IE": {
-      "total": 44,
-      "alive": 42
+      "total": 45,
+      "alive": 43
     },
     "KR": {
-      "total": 35,
-      "alive": 35
+      "total": 33,
+      "alive": 33
     },
     "CY": {
       "total": 31,
       "alive": 23
     },
-    "AE": {
-      "total": 25,
-      "alive": 22
-    },
     "JP": {
-      "total": 24,
+      "total": 25,
       "alive": 20
     },
     "FI": {
-      "total": 22,
+      "total": 23,
       "alive": 12
     },
     "IR": {
-      "total": 20,
-      "alive": 4
+      "total": 21,
+      "alive": 5
     },
     "CH": {
       "total": 20,
-      "alive": 10
+      "alive": 4
+    },
+    "AE": {
+      "total": 16,
+      "alive": 13
     },
     "SE": {
-      "total": 16,
-      "alive": 8
-    },
-    "BR": {
       "total": 15,
-      "alive": 3
+      "alive": 7
     },
     "MD": {
       "total": 15,
+      "alive": 1
+    },
+    "BR": {
+      "total": 13,
       "alive": 1
     },
     "IN": {
       "total": 11,
       "alive": 6
     },
-    "KZ": {
-      "total": 11,
-      "alive": 3
-    },
     "SA": {
       "total": 11,
       "alive": 0
+    },
+    "KZ": {
+      "total": 10,
+      "alive": 2
     },
     "GR": {
       "total": 10,
@@ -145,9 +141,13 @@
       "total": 10,
       "alive": 0
     },
-    "ES": {
-      "total": 8,
-      "alive": 3
+    "TR": {
+      "total": 9,
+      "alive": 2
+    },
+    "MY": {
+      "total": 9,
+      "alive": 2
     },
     "IT": {
       "total": 8,
@@ -157,13 +157,13 @@
       "total": 8,
       "alive": 1
     },
-    "TR": {
-      "total": 7,
-      "alive": 1
-    },
     "RO": {
       "total": 7,
       "alive": 5
+    },
+    "ES": {
+      "total": 7,
+      "alive": 3
     },
     "LT": {
       "total": 7,
@@ -181,13 +181,13 @@
       "total": 7,
       "alive": 0
     },
-    "MY": {
-      "total": 7,
-      "alive": 0
-    },
     "HU": {
       "total": 6,
       "alive": 0
+    },
+    "TW": {
+      "total": 5,
+      "alive": 2
     },
     "EE": {
       "total": 5,
@@ -197,33 +197,21 @@
       "total": 5,
       "alive": 0
     },
-    "TW": {
-      "total": 4,
-      "alive": 3
-    },
     "AT": {
       "total": 4,
       "alive": 3
     },
     "LV": {
       "total": 4,
-      "alive": 2
+      "alive": 1
     },
     "ZA": {
       "total": 3,
       "alive": 3
     },
-    "MT": {
-      "total": 3,
-      "alive": 2
-    },
     "SI": {
       "total": 3,
       "alive": 1
-    },
-    "NO": {
-      "total": 3,
-      "alive": 2
     },
     "KH": {
       "total": 3,
@@ -245,6 +233,14 @@
       "total": 2,
       "alive": 1
     },
+    "NO": {
+      "total": 2,
+      "alive": 1
+    },
+    "MT": {
+      "total": 2,
+      "alive": 1
+    },
     "IS": {
       "total": 2,
       "alive": 0
@@ -256,6 +252,10 @@
     "AL": {
       "total": 2,
       "alive": 2
+    },
+    "CN": {
+      "total": 2,
+      "alive": 0
     },
     "NZ": {
       "total": 1,
@@ -301,16 +301,16 @@
   "sources": {
     "https://raw.githubusercontent.com/MrAbolfazlNorouzi/iran-configs/refs/heads/main/configs/working-configs.txt": 5,
     "https://raw.githubusercontent.com/arshiacomplus/v2rayExtractor/refs/heads/main/mix/sub.html": 695,
-    "https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt": 1857,
+    "https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt": 1847,
     "https://raw.githubusercontent.com/parvinxs/Submahsanetxsparvin/refs/heads/main/Sub.mahsa.xsparvin": 1169,
     "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.txt": 200,
-    "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub": 10,
+    "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub": 9,
     "t.me/s/v2ray_configs_pool": 0,
-    "t.me/s/outline_vpn": 89,
-    "t.me/s/V2ray_Alpha": 77,
+    "t.me/s/outline_vpn": 95,
+    "t.me/s/V2ray_Alpha": 66,
     "t.me/s/v2rayngvpn": 0,
     "t.me/s/on_proxy1": 46
   },
   "note": "alive = TCP port reachable from GitHub Actions runner (not guaranteed to work inside Iran)",
-  "generatedAt": "2026-07-23T13:44:57.646Z"
+  "generatedAt": "2026-07-23T15:52:49.221Z"
 }
