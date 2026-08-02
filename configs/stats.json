@@ -1,19 +1,19 @@
 {
-  "total": 1998,
-  "alive": 1134,
-  "dead": 864,
+  "total": 1995,
+  "alive": 1150,
+  "dead": 845,
   "byProtocol": {
     "vless": {
-      "total": 1218,
-      "alive": 901
+      "total": 1215,
+      "alive": 912
     },
     "ss": {
       "total": 594,
-      "alive": 123
+      "alive": 130
     },
     "trojan": {
       "total": 112,
-      "alive": 82
+      "alive": 80
     },
     "vmess": {
       "total": 74,
@@ -22,36 +22,36 @@
   },
   "byCountry": {
     "CA": {
-      "total": 403,
-      "alive": 383
+      "total": 397,
+      "alive": 378
     },
     "US": {
-      "total": 206,
-      "alive": 158
+      "total": 208,
+      "alive": 157
     },
     "RU": {
-      "total": 161,
+      "total": 162,
       "alive": 95
     },
     "DE": {
-      "total": 129,
+      "total": 128,
       "alive": 84
     },
     "PL": {
-      "total": 114,
-      "alive": 12
+      "total": 115,
+      "alive": 13
     },
     "NL": {
       "total": 104,
       "alive": 73
     },
-    "GB": {
-      "total": 85,
-      "alive": 62
-    },
     "UN": {
-      "total": 85,
+      "total": 87,
       "alive": 0
+    },
+    "GB": {
+      "total": 86,
+      "alive": 65
     },
     "VN": {
       "total": 83,
@@ -63,27 +63,23 @@
     },
     "FR": {
       "total": 47,
-      "alive": 21
+      "alive": 20
+    },
+    "FI": {
+      "total": 43,
+      "alive": 29
     },
     "HK": {
       "total": 43,
-      "alive": 27
-    },
-    "FI": {
-      "total": 42,
-      "alive": 30
+      "alive": 29
     },
     "CY": {
       "total": 31,
-      "alive": 2
+      "alive": 23
     },
     "AE": {
       "total": 26,
       "alive": 23
-    },
-    "CH": {
-      "total": 24,
-      "alive": 14
     },
     "SG": {
       "total": 21,
@@ -92,6 +88,10 @@
     "JP": {
       "total": 20,
       "alive": 7
+    },
+    "CH": {
+      "total": 20,
+      "alive": 13
     },
     "IR": {
       "total": 19,
@@ -103,7 +103,7 @@
     },
     "MD": {
       "total": 16,
-      "alive": 2
+      "alive": 1
     },
     "BR": {
       "total": 14,
@@ -119,7 +119,7 @@
     },
     "ES": {
       "total": 10,
-      "alive": 5
+      "alive": 7
     },
     "GR": {
       "total": 10,
@@ -153,6 +153,10 @@
       "total": 8,
       "alive": 4
     },
+    "LT": {
+      "total": 8,
+      "alive": 3
+    },
     "KR": {
       "total": 8,
       "alive": 7
@@ -163,15 +167,7 @@
     },
     "TW": {
       "total": 7,
-      "alive": 5
-    },
-    "IT": {
-      "total": 7,
-      "alive": 1
-    },
-    "LT": {
-      "total": 7,
-      "alive": 2
+      "alive": 4
     },
     "EG": {
       "total": 7,
@@ -193,6 +189,10 @@
       "total": 6,
       "alive": 5
     },
+    "IT": {
+      "total": 6,
+      "alive": 1
+    },
     "BG": {
       "total": 5,
       "alive": 2
@@ -203,7 +203,7 @@
     },
     "RO": {
       "total": 5,
-      "alive": 2
+      "alive": 1
     },
     "PK": {
       "total": 5,
@@ -219,7 +219,7 @@
     },
     "CZ": {
       "total": 3,
-      "alive": 3
+      "alive": 2
     },
     "NO": {
       "total": 3,
@@ -299,7 +299,7 @@
     },
     "BY": {
       "total": 1,
-      "alive": 1
+      "alive": 0
     }
   },
   "sources": {
@@ -308,7 +308,7 @@
     "https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt": 935,
     "https://raw.githubusercontent.com/parvinxs/Submahsanetxsparvin/refs/heads/main/Sub.mahsa.xsparvin": 1169,
     "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.txt": 200,
-    "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub": 10,
+    "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub": 7,
     "t.me/s/v2ray_configs_pool": 0,
     "t.me/s/outline_vpn": 89,
     "t.me/s/V2ray_Alpha": 49,
@@ -316,5 +316,5 @@
     "t.me/s/on_proxy1": 47
   },
   "note": "alive = TCP port reachable from GitHub Actions runner (not guaranteed to work inside Iran)",
-  "generatedAt": "2026-08-02T20:49:03.501Z"
+  "generatedAt": "2026-08-02T21:52:04.861Z"
 }
