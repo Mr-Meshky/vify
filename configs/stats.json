@@ -1,19 +1,19 @@
 {
-  "total": 1901,
-  "alive": 1129,
-  "dead": 772,
+  "total": 1903,
+  "alive": 1130,
+  "dead": 773,
   "byProtocol": {
     "vless": {
-      "total": 1085,
-      "alive": 790
+      "total": 1082,
+      "alive": 785
     },
     "ss": {
       "total": 534,
-      "alive": 115
+      "alive": 117
     },
     "trojan": {
-      "total": 221,
-      "alive": 200
+      "total": 226,
+      "alive": 204
     },
     "vmess": {
       "total": 60,
@@ -26,28 +26,28 @@
   },
   "byCountry": {
     "CA": {
-      "total": 375,
-      "alive": 370
+      "total": 374,
+      "alive": 368
     },
     "RU": {
       "total": 231,
-      "alive": 174
+      "alive": 170
     },
     "US": {
-      "total": 171,
-      "alive": 120
+      "total": 173,
+      "alive": 125
     },
     "DE": {
       "total": 109,
-      "alive": 60
+      "alive": 61
     },
     "PL": {
-      "total": 108,
-      "alive": 8
+      "total": 109,
+      "alive": 9
     },
     "NL": {
       "total": 86,
-      "alive": 55
+      "alive": 53
     },
     "UN": {
       "total": 83,
@@ -63,11 +63,11 @@
     },
     "JP": {
       "total": 63,
-      "alive": 58
+      "alive": 57
     },
     "FR": {
       "total": 42,
-      "alive": 24
+      "alive": 23
     },
     "KR": {
       "total": 36,
@@ -86,16 +86,16 @@
       "alive": 10
     },
     "FI": {
-      "total": 28,
-      "alive": 16
+      "total": 27,
+      "alive": 17
     },
     "AE": {
       "total": 25,
       "alive": 21
     },
     "IR": {
-      "total": 20,
-      "alive": 2
+      "total": 21,
+      "alive": 5
     },
     "SG": {
       "total": 18,
@@ -115,7 +115,7 @@
     },
     "TR": {
       "total": 11,
-      "alive": 2
+      "alive": 3
     },
     "SE": {
       "total": 11,
@@ -183,7 +183,7 @@
     },
     "CO": {
       "total": 6,
-      "alive": 2
+      "alive": 1
     },
     "IT": {
       "total": 6,
@@ -312,5 +312,5 @@
     "t.me/s/on_proxy1": 47
   },
   "note": "alive = TCP port reachable from GitHub Actions runner (not guaranteed to work inside Iran)",
-  "generatedAt": "2026-08-09T16:29:15.217Z"
+  "generatedAt": "2026-08-09T17:27:30.035Z"
 }
