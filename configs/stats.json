@@ -1,22 +1,22 @@
 {
-  "total": 2391,
-  "alive": 1633,
-  "dead": 758,
+  "total": 2389,
+  "alive": 1627,
+  "dead": 762,
   "byProtocol": {
     "vless": {
-      "total": 1108,
-      "alive": 804
+      "total": 1094,
+      "alive": 789
     },
     "trojan": {
-      "total": 712,
+      "total": 711,
       "alive": 688
     },
     "ss": {
-      "total": 517,
-      "alive": 122
+      "total": 529,
+      "alive": 131
     },
     "vmess": {
-      "total": 52,
+      "total": 53,
       "alive": 19
     },
     "slipnet-enc": {
@@ -26,8 +26,8 @@
   },
   "byCountry": {
     "CA": {
-      "total": 381,
-      "alive": 374
+      "total": 384,
+      "alive": 375
     },
     "JP": {
       "total": 303,
@@ -35,11 +35,11 @@
     },
     "RU": {
       "total": 204,
-      "alive": 142
+      "alive": 143
     },
     "US": {
-      "total": 193,
-      "alive": 172
+      "total": 185,
+      "alive": 166
     },
     "KR": {
       "total": 151,
@@ -47,19 +47,19 @@
     },
     "DE": {
       "total": 125,
-      "alive": 85
+      "alive": 82
     },
     "PL": {
-      "total": 116,
-      "alive": 14
+      "total": 117,
+      "alive": 15
     },
     "UN": {
-      "total": 109,
+      "total": 108,
       "alive": 0
     },
     "NL": {
-      "total": 91,
-      "alive": 63
+      "total": 92,
+      "alive": 64
     },
     "VN": {
       "total": 80,
@@ -71,59 +71,59 @@
     },
     "SG": {
       "total": 69,
-      "alive": 54
+      "alive": 53
     },
     "FR": {
-      "total": 58,
-      "alive": 41
+      "total": 59,
+      "alive": 40
     },
     "HK": {
-      "total": 54,
-      "alive": 44
+      "total": 55,
+      "alive": 45
     },
     "SC": {
       "total": 32,
-      "alive": 9
+      "alive": 10
     },
     "IE": {
       "total": 28,
       "alive": 27
     },
     "FI": {
-      "total": 26,
-      "alive": 14
+      "total": 25,
+      "alive": 12
     },
     "IR": {
       "total": 19,
       "alive": 4
     },
-    "AE": {
-      "total": 14,
-      "alive": 11
-    },
     "MD": {
       "total": 14,
       "alive": 0
+    },
+    "AU": {
+      "total": 13,
+      "alive": 7
+    },
+    "AE": {
+      "total": 13,
+      "alive": 9
     },
     "BR": {
       "total": 13,
       "alive": 0
     },
-    "AU": {
-      "total": 12,
-      "alive": 6
-    },
-    "KZ": {
-      "total": 12,
-      "alive": 4
-    },
     "CY": {
       "total": 11,
-      "alive": 3
+      "alive": 2
     },
     "LU": {
       "total": 11,
       "alive": 11
+    },
+    "KZ": {
+      "total": 11,
+      "alive": 3
     },
     "SE": {
       "total": 11,
@@ -145,21 +145,25 @@
       "total": 10,
       "alive": 0
     },
-    "IT": {
+    "IN": {
       "total": 9,
-      "alive": 3
+      "alive": 4
     },
     "CH": {
       "total": 9,
-      "alive": 4
+      "alive": 5
     },
     "MY": {
       "total": 9,
       "alive": 2
     },
-    "IN": {
+    "IT": {
       "total": 8,
-      "alive": 3
+      "alive": 2
+    },
+    "UA": {
+      "total": 8,
+      "alive": 1
     },
     "TR": {
       "total": 7,
@@ -185,17 +189,9 @@
       "total": 7,
       "alive": 0
     },
-    "UA": {
-      "total": 7,
-      "alive": 0
-    },
     "PK": {
       "total": 5,
       "alive": 0
-    },
-    "BG": {
-      "total": 4,
-      "alive": 1
     },
     "LV": {
       "total": 4,
@@ -206,6 +202,10 @@
       "alive": 1
     },
     "ES": {
+      "total": 4,
+      "alive": 2
+    },
+    "BG": {
       "total": 3,
       "alive": 1
     },
@@ -229,6 +229,10 @@
       "total": 2,
       "alive": 1
     },
+    "NZ": {
+      "total": 2,
+      "alive": 2
+    },
     "SI": {
       "total": 2,
       "alive": 0
@@ -250,10 +254,6 @@
       "alive": 2
     },
     "TW": {
-      "total": 1,
-      "alive": 1
-    },
-    "NZ": {
       "total": 1,
       "alive": 1
     },
@@ -316,5 +316,5 @@
     "t.me/s/on_proxy1": 47
   },
   "note": "alive = TCP port reachable from GitHub Actions runner (not guaranteed to work inside Iran)",
-  "generatedAt": "2026-08-16T15:17:16.840Z"
+  "generatedAt": "2026-08-16T16:19:09.742Z"
 }
