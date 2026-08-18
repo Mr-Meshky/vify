@@ -1,23 +1,23 @@
 {
-  "total": 2464,
-  "alive": 1696,
-  "dead": 768,
+  "total": 2469,
+  "alive": 1695,
+  "dead": 774,
   "byProtocol": {
     "trojan": {
-      "total": 964,
-      "alive": 942
+      "total": 966,
+      "alive": 945
     },
     "vless": {
-      "total": 915,
-      "alive": 602
+      "total": 918,
+      "alive": 599
     },
     "ss": {
       "total": 524,
-      "alive": 126
+      "alive": 128
     },
     "vmess": {
       "total": 55,
-      "alive": 23
+      "alive": 20
     },
     "slipnet-enc": {
       "total": 3,
@@ -38,8 +38,8 @@
       "alive": 380
     },
     "CA": {
-      "total": 321,
-      "alive": 315
+      "total": 324,
+      "alive": 319
     },
     "KR": {
       "total": 199,
@@ -47,31 +47,31 @@
     },
     "US": {
       "total": 193,
-      "alive": 168
+      "alive": 163
     },
     "SG": {
-      "total": 135,
-      "alive": 122
+      "total": 136,
+      "alive": 123
     },
     "RU": {
       "total": 121,
-      "alive": 61
+      "alive": 60
     },
     "DE": {
       "total": 119,
-      "alive": 79
+      "alive": 78
     },
     "PL": {
       "total": 112,
       "alive": 11
     },
     "UN": {
-      "total": 106,
+      "total": 107,
       "alive": 0
     },
     "NL": {
       "total": 96,
-      "alive": 66
+      "alive": 67
     },
     "VN": {
       "total": 80,
@@ -79,14 +79,14 @@
     },
     "GB": {
       "total": 73,
-      "alive": 63
+      "alive": 61
     },
     "FR": {
-      "total": 64,
-      "alive": 43
+      "total": 65,
+      "alive": 45
     },
     "HK": {
-      "total": 49,
+      "total": 48,
       "alive": 40
     },
     "IE": {
@@ -107,11 +107,11 @@
     },
     "IR": {
       "total": 18,
-      "alive": 3
+      "alive": 2
     },
     "BR": {
       "total": 16,
-      "alive": 3
+      "alive": 1
     },
     "LU": {
       "total": 15,
@@ -129,10 +129,6 @@
       "total": 12,
       "alive": 4
     },
-    "EE": {
-      "total": 11,
-      "alive": 5
-    },
     "SE": {
       "total": 11,
       "alive": 3
@@ -143,7 +139,11 @@
     },
     "IT": {
       "total": 10,
-      "alive": 3
+      "alive": 4
+    },
+    "EE": {
+      "total": 10,
+      "alive": 4
     },
     "AE": {
       "total": 10,
@@ -159,7 +159,11 @@
     },
     "CH": {
       "total": 9,
-      "alive": 4
+      "alive": 5
+    },
+    "LT": {
+      "total": 8,
+      "alive": 3
     },
     "MY": {
       "total": 8,
@@ -177,10 +181,6 @@
       "total": 7,
       "alive": 1
     },
-    "LT": {
-      "total": 7,
-      "alive": 2
-    },
     "EG": {
       "total": 7,
       "alive": 1
@@ -197,13 +197,13 @@
       "total": 7,
       "alive": 0
     },
+    "BG": {
+      "total": 6,
+      "alive": 2
+    },
     "HU": {
       "total": 6,
       "alive": 0
-    },
-    "BG": {
-      "total": 5,
-      "alive": 1
     },
     "ZA": {
       "total": 5,
@@ -219,7 +219,7 @@
     },
     "BE": {
       "total": 4,
-      "alive": 3
+      "alive": 4
     },
     "SI": {
       "total": 3,
@@ -289,10 +289,6 @@
       "total": 1,
       "alive": 0
     },
-    "CZ": {
-      "total": 1,
-      "alive": 1
-    },
     "AL": {
       "total": 1,
       "alive": 1
@@ -312,13 +308,13 @@
     "https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt": 2313,
     "https://raw.githubusercontent.com/parvinxs/Submahsanetxsparvin/refs/heads/main/Sub.mahsa.xsparvin": 1169,
     "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.txt": 200,
-    "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub": 17,
-    "t.me/s/v2ray_configs_pool": 5,
+    "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub": 18,
+    "t.me/s/v2ray_configs_pool": 4,
     "t.me/s/outline_vpn": 108,
     "t.me/s/V2ray_Alpha": 48,
     "t.me/s/v2rayngvpn": 0,
     "t.me/s/on_proxy1": 47
   },
   "note": "alive = TCP port reachable from GitHub Actions runner (not guaranteed to work inside Iran)",
-  "generatedAt": "2026-08-18T13:39:08.605Z"
+  "generatedAt": "2026-08-18T14:28:24.228Z"
 }
