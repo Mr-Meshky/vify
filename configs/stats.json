@@ -1,23 +1,23 @@
 {
-  "total": 1706,
-  "alive": 877,
-  "dead": 829,
+  "total": 1704,
+  "alive": 868,
+  "dead": 836,
   "byProtocol": {
     "vless": {
-      "total": 853,
-      "alive": 553
+      "total": 851,
+      "alive": 548
     },
     "ss": {
       "total": 583,
-      "alive": 146
+      "alive": 142
     },
     "trojan": {
       "total": 206,
-      "alive": 154
+      "alive": 153
     },
     "vmess": {
       "total": 61,
-      "alive": 24
+      "alive": 25
     },
     "slipnet-enc": {
       "total": 3,
@@ -38,8 +38,8 @@
       "alive": 73
     },
     "NL": {
-      "total": 114,
-      "alive": 82
+      "total": 113,
+      "alive": 77
     },
     "PL": {
       "total": 113,
@@ -50,8 +50,8 @@
       "alive": 0
     },
     "DE": {
-      "total": 86,
-      "alive": 48
+      "total": 85,
+      "alive": 47
     },
     "VN": {
       "total": 80,
@@ -93,13 +93,13 @@
       "total": 18,
       "alive": 4
     },
+    "BR": {
+      "total": 18,
+      "alive": 3
+    },
     "FI": {
       "total": 18,
       "alive": 9
-    },
-    "BR": {
-      "total": 17,
-      "alive": 2
     },
     "MD": {
       "total": 14,
@@ -111,18 +111,18 @@
     },
     "CY": {
       "total": 11,
-      "alive": 3
+      "alive": 2
     },
     "SE": {
       "total": 11,
       "alive": 3
     },
-    "GR": {
-      "total": 11,
-      "alive": 1
-    },
     "SA": {
       "total": 11,
+      "alive": 0
+    },
+    "GR": {
+      "total": 10,
       "alive": 0
     },
     "IL": {
@@ -147,7 +147,7 @@
     },
     "TR": {
       "total": 7,
-      "alive": 3
+      "alive": 2
     },
     "IN": {
       "total": 7,
@@ -287,7 +287,7 @@
     },
     "TH": {
       "total": 1,
-      "alive": 1
+      "alive": 0
     },
     "IM": {
       "total": 1,
@@ -320,5 +320,5 @@
     "t.me/s/on_proxy1": 47
   },
   "note": "alive = TCP port reachable from GitHub Actions runner (not guaranteed to work inside Iran)",
-  "generatedAt": "2026-08-23T16:19:26.150Z"
+  "generatedAt": "2026-08-23T17:16:51.639Z"
 }
