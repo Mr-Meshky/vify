@@ -1,23 +1,23 @@
 {
-  "total": 1677,
-  "alive": 858,
-  "dead": 819,
+  "total": 1678,
+  "alive": 854,
+  "dead": 824,
   "byProtocol": {
     "vless": {
-      "total": 909,
+      "total": 908,
       "alive": 589
     },
     "ss": {
-      "total": 575,
-      "alive": 166
+      "total": 577,
+      "alive": 164
     },
     "trojan": {
       "total": 103,
-      "alive": 63
+      "alive": 62
     },
     "vmess": {
       "total": 87,
-      "alive": 40
+      "alive": 39
     },
     "slipnet-enc": {
       "total": 3,
@@ -26,8 +26,8 @@
   },
   "byCountry": {
     "CA": {
-      "total": 291,
-      "alive": 285
+      "total": 292,
+      "alive": 286
     },
     "US": {
       "total": 158,
@@ -35,7 +35,7 @@
     },
     "RU": {
       "total": 143,
-      "alive": 79
+      "alive": 80
     },
     "PL": {
       "total": 110,
@@ -47,11 +47,11 @@
     },
     "NL": {
       "total": 96,
-      "alive": 65
+      "alive": 63
     },
     "DE": {
-      "total": 92,
-      "alive": 50
+      "total": 91,
+      "alive": 49
     },
     "GB": {
       "total": 88,
@@ -63,7 +63,7 @@
     },
     "FR": {
       "total": 40,
-      "alive": 22
+      "alive": 23
     },
     "HK": {
       "total": 37,
@@ -89,13 +89,13 @@
       "total": 17,
       "alive": 9
     },
-    "AE": {
-      "total": 15,
-      "alive": 12
-    },
     "BR": {
       "total": 15,
       "alive": 1
+    },
+    "AE": {
+      "total": 14,
+      "alive": 11
     },
     "MD": {
       "total": 14,
@@ -103,7 +103,7 @@
     },
     "KZ": {
       "total": 13,
-      "alive": 4
+      "alive": 5
     },
     "CY": {
       "total": 12,
@@ -139,7 +139,7 @@
     },
     "IT": {
       "total": 9,
-      "alive": 0
+      "alive": 1
     },
     "AU": {
       "total": 9,
@@ -149,17 +149,17 @@
       "total": 9,
       "alive": 2
     },
+    "CN": {
+      "total": 9,
+      "alive": 0
+    },
     "TR": {
       "total": 8,
       "alive": 2
     },
     "IN": {
       "total": 7,
-      "alive": 1
-    },
-    "LV": {
-      "total": 7,
-      "alive": 5
+      "alive": 2
     },
     "EG": {
       "total": 7,
@@ -177,21 +177,17 @@
       "total": 7,
       "alive": 0
     },
+    "LV": {
+      "total": 6,
+      "alive": 3
+    },
     "HU": {
       "total": 6,
       "alive": 1
     },
-    "CN": {
-      "total": 6,
-      "alive": 0
-    },
-    "BG": {
-      "total": 5,
-      "alive": 1
-    },
     "ES": {
       "total": 5,
-      "alive": 2
+      "alive": 1
     },
     "PK": {
       "total": 5,
@@ -199,10 +195,14 @@
     },
     "KR": {
       "total": 5,
-      "alive": 5
+      "alive": 4
     },
     "LT": {
       "total": 5,
+      "alive": 0
+    },
+    "BG": {
+      "total": 4,
       "alive": 0
     },
     "IE": {
@@ -239,7 +239,7 @@
     },
     "TW": {
       "total": 3,
-      "alive": 3
+      "alive": 2
     },
     "NO": {
       "total": 2,
@@ -248,6 +248,10 @@
     "GE": {
       "total": 2,
       "alive": 2
+    },
+    "CZ": {
+      "total": 2,
+      "alive": 1
     },
     "AL": {
       "total": 2,
@@ -274,10 +278,6 @@
       "alive": 1
     },
     "VI": {
-      "total": 1,
-      "alive": 1
-    },
-    "CZ": {
       "total": 1,
       "alive": 1
     },
@@ -328,7 +328,7 @@
     "https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt": 440,
     "https://raw.githubusercontent.com/parvinxs/Submahsanetxsparvin/refs/heads/main/Sub.mahsa.xsparvin": 1169,
     "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.txt": 200,
-    "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub": 11,
+    "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub": 9,
     "t.me/s/v2ray_configs_pool": 0,
     "t.me/s/outline_vpn": 103,
     "t.me/s/V2ray_Alpha": 64,
@@ -336,5 +336,5 @@
     "t.me/s/on_proxy1": 47
   },
   "note": "alive = TCP port reachable from GitHub Actions runner (not guaranteed to work inside Iran)",
-  "generatedAt": "2026-08-25T15:38:21.678Z"
+  "generatedAt": "2026-08-25T16:30:59.635Z"
 }
