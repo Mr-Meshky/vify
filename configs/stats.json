@@ -1,23 +1,23 @@
 {
-  "total": 1603,
-  "alive": 658,
-  "dead": 945,
+  "total": 1600,
+  "alive": 653,
+  "dead": 947,
   "byProtocol": {
     "vless": {
-      "total": 831,
-      "alive": 441
+      "total": 830,
+      "alive": 438
     },
     "ss": {
-      "total": 659,
-      "alive": 158
+      "total": 660,
+      "alive": 159
     },
     "vmess": {
-      "total": 71,
-      "alive": 29
+      "total": 70,
+      "alive": 28
     },
     "trojan": {
-      "total": 41,
-      "alive": 30
+      "total": 39,
+      "alive": 28
     },
     "slipnet-enc": {
       "total": 1,
@@ -26,36 +26,36 @@
   },
   "byCountry": {
     "US": {
-      "total": 250,
-      "alive": 130
+      "total": 251,
+      "alive": 129
     },
     "CA": {
-      "total": 194,
+      "total": 193,
       "alive": 178
     },
     "DE": {
-      "total": 122,
-      "alive": 62
+      "total": 126,
+      "alive": 65
     },
     "PL": {
-      "total": 112,
+      "total": 113,
       "alive": 7
     },
     "UN": {
-      "total": 112,
+      "total": 111,
       "alive": 0
     },
     "RU": {
-      "total": 102,
-      "alive": 35
-    },
-    "NL": {
-      "total": 87,
-      "alive": 56
+      "total": 99,
+      "alive": 31
     },
     "GB": {
       "total": 86,
       "alive": 59
+    },
+    "NL": {
+      "total": 85,
+      "alive": 56
     },
     "VN": {
       "total": 80,
@@ -63,43 +63,43 @@
     },
     "FR": {
       "total": 41,
-      "alive": 19
+      "alive": 17
     },
     "SC": {
       "total": 27,
       "alive": 4
     },
     "FI": {
-      "total": 27,
-      "alive": 14
+      "total": 26,
+      "alive": 13
     },
     "SG": {
       "total": 22,
       "alive": 9
     },
     "IR": {
-      "total": 17,
-      "alive": 6
+      "total": 18,
+      "alive": 7
     },
     "MD": {
       "total": 16,
       "alive": 2
     },
-    "AE": {
-      "total": 15,
-      "alive": 10
-    },
     "BR": {
       "total": 15,
       "alive": 0
     },
-    "JP": {
+    "HK": {
       "total": 14,
-      "alive": 11
+      "alive": 6
+    },
+    "AE": {
+      "total": 13,
+      "alive": 8
     },
     "TR": {
       "total": 12,
-      "alive": 5
+      "alive": 6
     },
     "IT": {
       "total": 12,
@@ -113,9 +113,9 @@
       "total": 12,
       "alive": 1
     },
-    "HK": {
+    "JP": {
       "total": 11,
-      "alive": 3
+      "alive": 7
     },
     "SA": {
       "total": 11,
@@ -207,7 +207,7 @@
     },
     "TW": {
       "total": 3,
-      "alive": 1
+      "alive": 2
     },
     "CZ": {
       "total": 3,
@@ -269,10 +269,6 @@
       "total": 1,
       "alive": 0
     },
-    "LU": {
-      "total": 1,
-      "alive": 1
-    },
     "SK": {
       "total": 1,
       "alive": 0
@@ -296,15 +292,19 @@
     "AM": {
       "total": 1,
       "alive": 0
+    },
+    "LU": {
+      "total": 1,
+      "alive": 1
     }
   },
   "sources": {
     "https://raw.githubusercontent.com/MrAbolfazlNorouzi/iran-configs/refs/heads/main/configs/working-configs.txt": 5,
     "https://raw.githubusercontent.com/arshiacomplus/v2rayExtractor/refs/heads/main/mix/sub.html": 258,
-    "https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt": 108,
+    "https://raw.githubusercontent.com/4n0nymou3/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt": 106,
     "https://raw.githubusercontent.com/parvinxs/Submahsanetxsparvin/refs/heads/main/Sub.mahsa.xsparvin": 1169,
     "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.txt": 200,
-    "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub": 9,
+    "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub": 8,
     "t.me/s/v2ray_configs_pool": 0,
     "t.me/s/outline_vpn": 141,
     "t.me/s/V2ray_Alpha": 137,
@@ -312,5 +312,5 @@
     "t.me/s/on_proxy1": 97
   },
   "note": "alive = TCP port reachable from GitHub Actions runner (not guaranteed to work inside Iran)",
-  "generatedAt": "2026-09-13T17:53:22.002Z"
+  "generatedAt": "2026-09-13T20:10:55.152Z"
 }
